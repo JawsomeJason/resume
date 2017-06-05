@@ -1,0 +1,87 @@
+@import 'styles/variables';
+
+.app {
+  display: grid;
+  grid-template:
+    "header   header" auto
+    "controls content" 1fr
+    / 10em auto;
+  width: 100vw;
+  height: 100vh;
+
+  > * {
+    grid-area: content;
+
+    > * {
+      display: grid;
+      margin-left: -10rem;
+      grid-template: 'controls content' / 10rem 1fr;
+
+      > * {
+        grid-column: 2;
+      }
+
+      &:after {
+        content: '';
+        grid-area: controls;
+        grid-row-end: span content;
+        background-color: blue;
+
+      }
+    }
+  }
+
+  &:before {
+    content: '';
+    background-color: $yellow;
+  }
+
+  &__header {
+    grid-area: header;
+    background-color: red;
+    position: relative;
+
+    &:before {
+      content: 'foo';
+      display: block;
+      background-color: black;
+      position: absolute;
+      width: 25rem;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      border-radius: -2em;
+    }
+  }
+}
+
+.section {
+
+  // overflow: auto;
+  // display: grid;
+  // grid-template:
+  //   "controls content" / minmax(6rem, 10rem) auto;
+  // grid-gap: .5em 1em;
+
+  // // put all content on the left column
+  // > * {
+  //   grid-column: 2;
+  // }
+
+  // &:before {
+  //   content: '';
+  //   grid-area: controls;
+  //   grid-row-end: span content;
+
+  //   background-color: #a59200;
+  // }
+}
+
+[data-point] {
+  display: grid;
+
+}
+
+.experience {
+
+}

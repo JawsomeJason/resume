@@ -1,0 +1,29 @@
+@import 'styles/variables';
+@import 'styles/base.scss';
+
+.button {
+  --background-color: $yellow;
+  --color: $black;
+  font-family: 'antonio', sans-serif;
+  font-size: 3em;
+  font-weight: bold;
+  background-color: var(--background-color);
+  appearance: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  text-transform: uppercase;
+
+  &[aria-label] {
+    border-radius: 100vh;
+
+    &:before {
+      content: attr(aria-label);
+      display: inline-block;
+      color: var(--background-color);
+      background-color: white;
+      padding: 0 1em;
+      margin-left: 1em;
+    }
+  }
+}
